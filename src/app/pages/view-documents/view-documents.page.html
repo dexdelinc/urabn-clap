@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name='arrow-back'></ion-icon></ion-button>
+      <ion-row>
+        <ion-col align-self-center>
+          <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="ion-padding ion-text-center">
+    Uploaded Documents
+  </h3>
+  <ion-grid *ngIf="imageData">
+    <ion-item *ngFor="let item of imageData;let i = index;">
+      <ion-card *ngIf="i<=0">Aadhar Image
+        <ion-img src="{{url}}{{item}}"></ion-img>
+      </ion-card>
+      <ion-card *ngIf="i==1">Pan Card Image
+        <ion-img src="{{url}}{{item}}"></ion-img>
+      </ion-card>
+      <ion-card *ngIf="i==2">Driving License Image
+        <ion-img src="{{url}}{{item}}"></ion-img>
+      </ion-card>
+      <ion-card *ngIf="i==3">Live Image
+        <ion-img src="{{url}}{{item}}"></ion-img>
+      </ion-card>
+    </ion-item>
+  </ion-grid>
+  <!-- <ion-toolbar color="danger" *ngIf="aadharImages.length == 0">
+    <ion-button
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takeAadharPicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-toolbar> -->
+</ion-content>

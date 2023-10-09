@@ -1,0 +1,48 @@
+#header{
+    font-weight: bold;
+    margin-top: 50px;
+    color: #667;
+    font-size: 30px;
+}
+#desc{
+    font-size: small;
+
+}
+.log{
+    display: grid;
+    width: 70%;
+    margin-left: 10px;
+  }
+#card1{
+    background: linear-gradient(to left top,#c165dd,#5c27fe);
+
+}
+ion-grid{
+    transition: 0.5s;
+    margin: 50px;
+    ion-card-title,
+    ion-card-subtitle{
+        color: #ffffff !important;
+        font-size: 25px;
+    }
+    ion-card-content{
+        h2{
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        p{
+            color: #ffffff !important;
+            margin: 20px auto;
+        }
+    }
+    ion-icon{
+        font-size: 150px;
+        color: #ffffff;
+        position: absolute;
+        top: 40%;
+        left: 1%;
+        opacity: 0.2;
+        transform: rotateX(-30deg);
+    }
+}

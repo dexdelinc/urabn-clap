@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/customer-register"></ion-back-button>
+      <ion-row>
+        <ion-col align-self-center>
+          <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input type="text" formControlName="firstname" minlength="3" maxlength="20"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.firstname.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.firstname.errors.required">
+        Fristname is required.
+      </span>
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input type="text" formControlName="lastname" minlength="3" maxlength="20"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.lastname.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.lastname.errors.required">
+        Lastname is required.
+      </span>
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.email.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.email.errors.required">
+        Email is required.
+      </span>
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input maxlength="10" formControlName="phone" type="text"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.phone.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.phone.errors.required">
+        Mobile number is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.phone.errors.pattern">
+        Only numerical values allowed.
+      </span>
+    </span>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Re-phone</ion-label>
+      <ion-input type="text" maxlength="10" formControlName="rephone"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.rephone.errors" class="text-danger">
+
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.rephone.errors.pattern">
+        Only numerical values allowed.
+      </span>
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Password </ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.password.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.password.errors.required">
+        Password is required.
+      </span>
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Location</ion-label>
+      <ion-input type="text" formControlName="geo_address" #autocomplete>
+      </ion-input>
+    </ion-item>
+    <span *ngIf="isSubmitted && registerForm.controls.geo_address.errors" class="text-danger">
+      <span class="error ion-padding" *ngIf="isSubmitted && registerForm.controls.geo_address.errors.required">
+        Loction is required.
+      </span>
+    </span>
+    <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+    <ion-row>
+      <ion-col>
+        <a [routerLink]="['/customer-login']" class="small-text">Already have an account? Log In.</a>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>

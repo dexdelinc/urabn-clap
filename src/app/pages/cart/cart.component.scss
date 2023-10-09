@@ -1,0 +1,35 @@
+.log {
+  display: grid;
+  width: 60%;
+  margin-left: 20px;
+}
+.image {
+  border-radius: inherit;
+  width: 60px;
+  margin-right: 10px;
+}
+.left__btn:hover ion-button {
+  background-color: lightgray;
+}
+.title {
+  margin-left: 20%;
+  font-size: x-large;
+}
+.badge {
+  font-size: x-large;
+  margin-top: 15px;
+}
+.total {
+  border-color: black;
+  border-style: groove;
+}
+#price {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.cart_card {
+  padding: 5px;
+  color: black;
+  background-color: whitesmoke;
+}

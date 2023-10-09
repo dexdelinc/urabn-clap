@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-badge color="danger">{{ cartItemCount | async }}</ion-badge>
+      <ion-icon name="cart" slot="start" (click)="onGotoCart()"></ion-icon>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar debounce="500" [(ngModel)]="search"></ion-searchbar>
+
+  <ion-list *ngFor="let item of productData | filter:search:filterKeys;let i = index;">
+
+    <ion-item>
+      <!-- <ion-avatar slot="start"> -->
+      <img slot="start" class="image" src="{{url}}{{item.imagePath}}" />
+      <!-- </ion-avatar> -->
+
+      <ion-label class="items">
+        <h2>Status: {{item.status}}</h2>
+        <h2>Item: {{item.name}}</h2>
+        <h3>Price: {{item.basePrice}}</h3>
+        <h3>Quantity: {{item.quantity}}</h3>
+        <h2>{{item.service}}</h2>
+        <h2>Description: {{item.description}}</h2>
+
+      </ion-label>
+      <ion-fab-button color="success">
+        <ion-icon name="add" (click)="onAdd(item)"></ion-icon>
+      </ion-fab-button>
+      <!-- <ion-fab-button color="success" class="btn" *ngIf="">
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-fab-button> -->
+      <!-- <ion-avatar slot="end">
+          <ion-button (click)="presentAlert(item._id)">
+            <ion-img src="assets/img/phone-call.png"></ion-img>
+          </ion-button>
+  
+        </ion-avatar> -->
+
+    </ion-item>
+
+
+
+  </ion-list>
+</ion-content>
+<ion-footer *ngIf="showFooter">
+  <section class="form__footer mt-0 mb-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-6 border__right p-0">
+          <div class="left__btn">
+            <ion-button expand="block" color="danger" (click)="onCancel()">
+              Cancel
+              <!-- <ion-icon name="git-network-sharp"></ion-icon> Services -->
+            </ion-button>
+          </div>
+        </div>
+        <div class="col-md-6 col-6 p-0">
+          <div class="left__btn">
+            <ion-button expand="block" (click)="onGotoCart()">
+              <!-- <ion-icon name="card-sharp"></ion-icon> Shops -->
+              Go To Cart
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-footer>

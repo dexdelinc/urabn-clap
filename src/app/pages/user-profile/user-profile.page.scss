@@ -1,0 +1,69 @@
+.data__togle {
+    // margin-top: 79px;
+        text-align: center;
+}
+
+
+img {
+    // border-radius: 50%;
+    margin-top: 110px;
+    width: 170px;
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50;
+}
+.log{
+    display: grid;
+    width: 70%;
+    margin-left: 20px;
+  }
+#card1{
+    background: white;
+    border-radius: 20px;
+    border-style: solid;
+}
+.avatar {
+    vertical-align: middle;
+        width: 147px;
+        margin-left: 125px;
+        height: 142px;
+        border-radius: 15%;
+}
+#flame{
+    margin-top: 10px;
+    color: orange;
+}
+.payment{
+    background-color: #3880FF;
+}
+.p {
+    text-align: end;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.label{
+    font-weight: bold;
+}
+ion-item.item:hover .ion-label {
+    background-color: lightgray
+  }
+ion-item ion-label a {
+   cursor: pointer;
+  }
+  .card-title{
+    font-weight: bolder;
+    font-size: x-large;
+    font-variant-caps: small-caps;
+}
+
+
+ion-grid ion-col {
+  background-color: #F5FAFA;
+  border: solid 1px #fff;
+  color: #fff;
+  text-align: left;
+  
+}

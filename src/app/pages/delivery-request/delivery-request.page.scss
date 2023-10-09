@@ -1,0 +1,18 @@
+.log {
+    display: grid;
+    width: 70%;
+    margin-left: 10px;
+  }
+  .ion-content{
+    background: silver;
+  }
+.card {
+    background-color:linear-gradient(90deg, var(--ion-color-primary) 30%, var(--orange) 100%);
+  }
+  h2.headertekst {
+    text-align: center;
+    background:linear-gradient(90deg, var(--ion-color-primary) 30%, var(--orange) 100%); ;
+    color: #f8f9fa;
+    margin-top: 5px;
+    font-size: 26px;
+  }

@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name='arrow-back'></ion-icon></ion-button>
+      <ion-row>
+        <ion-col align-self-center>
+          <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="imageData.length==0">
+  <h3 *ngIf="aadharImages.length == 0" class="ion-padding ion-text-center">
+    Please Select Aadhar Image!
+  </h3>
+  <ion-list *ngIf="aadharImages.length !== 0">
+    <ion-item *ngFor="let file of aadharImages; let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="file.dataUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap"> Aadhar </ion-label>
+      <!-- <ion-button slot="end" fill="clear" (click)="startUpload()">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+      </ion-button> -->
+      <ion-button slot="end" fill="clear" (click)="showActionSheet(i,'aadhar')">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card color="danger" *ngIf="aadharImages.length == 0">
+    <ion-button
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takeAadharPicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-card>
+</ion-content>
+<ion-content *ngIf="imageData.length==0">
+  <h3 *ngIf="panCardImages.length == 0" class="ion-padding ion-text-center">
+    Please Select Pan Card Image!
+  </h3>
+  <ion-list *ngIf="panCardImages.length !== 0">
+    <ion-item *ngFor="let file of panCardImages; let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="file.dataUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap"> Pan Card </ion-label>
+      <!-- <ion-button slot="end" fill="clear" (click)="startUpload()">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+      </ion-button> -->
+      <ion-button slot="end" fill="clear" (click)="showActionSheet(i,'panCard')">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card color="danger" *ngIf="panCardImages.length == 0">
+    <ion-button [disabled]="aadharImages.length == 0"
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takePanCardPicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-card>
+</ion-content>
+<ion-content *ngIf="imageData.length==0">
+  <h3 *ngIf="dlImages.length == 0" class="ion-padding ion-text-center">
+    Please Select Driving License Image!
+  </h3>
+  <ion-list *ngIf="dlImages.length !== 0">
+    <ion-item *ngFor="let file of dlImages; let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="file.dataUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap"> Driving License </ion-label>
+      <!-- <ion-button slot="end" fill="clear" (click)="startUpload()">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+      </ion-button> -->
+      <ion-button slot="end" fill="clear" (click)="showActionSheet(i,'dl')">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card color="danger" *ngIf="dlImages.length == 0">
+    <ion-button [disabled]="panCardImages.length == 0"
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takeDrivingLicensePicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-card>
+</ion-content>
+<ion-content *ngIf="imageData.length==0">
+  <h3 *ngIf="liveImages.length == 0" class="ion-padding ion-text-center">
+    Please Select Live Image!
+  </h3>
+  <ion-list *ngIf="liveImages.length !== 0">
+    <ion-item *ngFor="let file of liveImages; let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="file.dataUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap"> Live </ion-label>
+      <!-- <ion-button slot="end" fill="clear" (click)="startUpload()">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+      </ion-button> -->
+      <ion-button slot="end" fill="clear" (click)="showActionSheet(i,'live')">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card color="danger" *ngIf="liveImages.length == 0">
+    <ion-button [disabled]="dlImages.length == 0"
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takeLivePicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-card>
+</ion-content>
+<ion-content  style="text-align: center;" *ngIf="imageData.length==4">
+  <ion-card color="success">
+<h1>Document Already Uploaded</h1>
+</ion-card >
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="images.length == 4">
+    <ion-button
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="startUpload()"
+    >
+      <ion-icon slot="start" name="cloud-upload"></ion-icon>
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

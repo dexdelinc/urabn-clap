@@ -1,0 +1,127 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent  color="dark">
+      <ion-title>My Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content color="light">
+    <ion-list >
+      <ion-item>
+        <ion-icon id="label" name="person-sharp" color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label" [routerLink]="['/product-details']"><a>Product</a></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon  name="person-add-sharp" color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label"><a (click)="presentAlert()" >Add-Product</a></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon id="label" name="wallet" color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label" (click)="earning()"><a>Earning</a></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon id="label" name="bag-sharp"color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label" (click)="onOrder()"><a>Orders</a></ion-label>
+      </ion-item>
+       <ion-item>
+        <ion-icon id="label" name="document" color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label" (click)="uploadDoc()"><a>Upload Documents</a></ion-label>
+      </ion-item>
+       <ion-item>
+        <ion-icon id="label" name="document" color="danger" slot="start"></ion-icon>
+        <ion-label class="ion-label" (click)="viewDoc()"><a>View Documents</a></ion-label>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-icon id="label" name="key" slot="start"></ion-icon>
+        <ion-label class="ion-label"><a>LogOut</a></ion-label>
+      </ion-item> -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- List of Text Items -->
+<ion-content fullscreen>
+  
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button ></ion-menu-button>
+          <ion-row>
+            <ion-col align-self-center>
+              <ion-img src="assets/img/s-work7-logo-11.png" class="log" (click)="goBack()"></ion-img>
+             
+            </ion-col>
+          </ion-row>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-icon name="log-out" (click)="signOut()" slot="start"></ion-icon>
+        </ion-buttons>
+        <ion-title></ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </div>
+  
+    
+      <img class="avatar" src="{{url}}{{imageData}}" alt="Avatar" />
+
+<h3 class="ion-text-center">{{firstName}}{{lastName}} <ion-badge color="danger">swork</ion-badge></h3>
+  <h5 class="ion-text-center">{{phone}}</h5>
+  <ion-card>
+   <ion-item>
+  <ion-label class="label">Availablity:</ion-label>
+    <ion-toggle [(ngModel)]="isToggled" (ionChange)="notify()" color="primary"></ion-toggle>
+    </ion-item>
+    </ion-card>
+    <br>
+    <ion-card id="card1" class="ion-text-center" *ngIf="showPayment">
+      <ion-icon id="flame" name="flame"></ion-icon>
+      <ion-card-header>
+        <ion-card-title class="card-title">Activate Base-Plan<br>#730 Rs</ion-card-title>
+      </ion-card-header>
+      <ion-button size="large" shape="round" fill="clear"  color="success" href="/payment">Click Here to Pay</ion-button>
+
+
+    </ion-card>
+  
+  <ion-grid *ngIf="showPlan">
+    <ion-row>
+      <ion-col>
+        <ion-card id="card1" class="ion-text-center">
+          <ion-icon id="flame" name="flame"></ion-icon>
+          <ion-card-header>
+            <ion-card-title class="card-title">Plan Activation Valid Till </ion-card-title>
+            <ion-card-title color="danger" class="card-title">{{endDate}}/{{endMonth}}/{{endYear}} </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+     <ion-col>
+      
+         <ion-title color="danger" class="ion-text-center">User Details</ion-title>
+      
+     </ion-col>
+    </ion-row>
+     <ion-row>
+       <ion-col size="4"><ion-text color="dark" >User Name</ion-text></ion-col>
+       <ion-col><ion-text color="dark">{{firstName}}-{{lastName}}</ion-text></ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col  size="4"><ion-text color="dark">Phone Number</ion-text></ion-col>
+       <ion-col><ion-text color="dark">{{phone}}</ion-text></ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col  size="4"><ion-text color="dark">Location</ion-text></ion-col>
+       <ion-col><ion-text color="dark">{{geo_address}}</ion-text></ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col  size="4"><ion-text color="dark">Ref-Number</ion-text></ion-col>
+       <ion-col><ion-text color="dark">{{rephone}}</ion-text></ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col  size="4"><ion-text color="dark">Email</ion-text></ion-col>
+       <ion-col><ion-text color="dark">{{email}}</ion-text></ion-col>
+     </ion-row>
+   </ion-grid>
+</ion-content>

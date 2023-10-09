@@ -1,0 +1,13 @@
+{
+  "name": "Swork7",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/image",
+      "proxyUrl": "https://api.smartworkindia7.com"
+    }
+  ]
+}

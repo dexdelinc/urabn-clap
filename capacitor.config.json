@@ -1,0 +1,14 @@
+{
+    "appId": "com.app.Swork7",
+    "appName": "Swork7",
+    "webDir": "www",
+    "bundledWebRuntime": false,
+    "Splashscreen": {
+        "launchAutoHide": false,
+        "androidScaleType": "CENTER_CROP",
+        "splashFullScreen": true,
+        "splashImmersive": false,
+        "backgroundColor": "#ffffff" 
+    }
+   
+}

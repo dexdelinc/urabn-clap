@@ -1,0 +1,32 @@
+ion-item.item:hover ion-badge {
+  cursor: pointer;
+}
+.log {
+  display: grid;
+  width: 70%;
+  margin-left: 10px;
+}
+.fab {
+  display: flex;
+  justify-content: center;
+  border-bottom: inset;
+}
+.toggle {
+  border-right-style: ridge;
+}
+.image {
+  border-radius: inherit;
+  width: 80px;
+  margin-right: 10px;
+  height: 80px;
+}
+.avatar {
+  vertical-align: middle;
+  width: 147px;
+  margin-left: 125px;
+  height: 142px;
+  border-radius: 15%;
+}
+.items{
+    white-space: break-spaces;
+  }

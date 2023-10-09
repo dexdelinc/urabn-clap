@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"
+        ><ion-icon name="arrow-back"></ion-icon
+      ></ion-button>
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main col-4-12">
+    <div class="main_1 col-12-12">
+      <div class="sub_main">
+        <div class="sub_main_1">
+          <span class="span">Price Details</span>
+          <div class="sub_span">
+            <div class="content">
+              <div class="content_1">
+                <div class="price">Price</div>
+              </div>
+              <span>{{price}}</span>
+            </div>
+            <div class="content">
+              <div class="content_1">
+                <div class="price">Service Charge</div>
+              </div>
+              <span>{{serviceCharge}}</span>
+            </div>
+            <div class="content">
+              <div class="content_1">
+                <div class="price">Tax</div>
+              </div>
+              <span>{{tax}}</span>
+            </div>
+            <div class="content">
+              <div class="content_1">
+                <div class="price">Delivery Charge</div>
+              </div>
+              <span>{{deliveryCharge}}</span>
+            </div>
+            <div class="final">
+              <div class="sub_final">
+                <div class="sub_final_1">
+                  <div class="total">Total Amount</div>
+                </div>
+                <span>
+                  <div class="main_span">
+                    <div class="main_span_1 span_1">
+                      <div class="main_span_2">
+                        <div class="main_span_3"></div>
+                      </div>
+                      <span>{{totalAmt}}</span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<div class="btn_main col-12-12">
+  <div class="btn_main_1">
+    <ion-button color="danger" mode="md" (click)="paymentSheet()"
+      >Pay Now</ion-button>
+  </div>
+</div>

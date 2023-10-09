@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/user-profile"></ion-back-button>
+      <ion-col align-self-center [routerLink]="['/home']">
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-content">
+  
+  <h2 class="headertekst">Order Request</h2>
+ 
+  <ion-card *ngFor="let item of order;let i = index;">
+
+
+    <ion-item>
+
+      <ion-label text-wrap>
+    <h2 class="headertekst" *ngIf="item.acceptDeliveryBoy!==''" >Order Accepted</h2>
+
+        <!-- <h2>{{item.phone}}</h2> -->
+        <h2>{{item.phone}}</h2>
+        <!-- <h2>{{item.service}}</h2> -->
+        <h2>{{item.address}}</h2>
+       
+        <ion-button *ngIf="item.acceptDeliveryBoy===''" color="dark"  (click)="OnAccept()"><h2>Accept Request for Order</h2></ion-button>
+        <ion-button *ngIf="item.acceptDeliveryBoy!==''" color="dark"  (click)="launchApp(item)"><h2>Track Customer</h2></ion-button>
+      </ion-label>
+
+      <ion-avatar slot="end">
+       
+        <a href="tel:{{item.phone}}"><ion-icon class="call" color="success" name="call-sharp"></ion-icon></a>
+   
+       
+
+      </ion-avatar>
+      
+    </ion-item>
+
+
+
+  </ion-card>
+</ion-content>

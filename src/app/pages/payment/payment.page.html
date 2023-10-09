@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name='arrow-back'></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-col align-self-center>
+      <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="ion-text-center">
+    <h1 id="header">
+      Choose best plan to host your Service
+
+    </h1>
+    <ion-note>
+      Our Website hosting best plan includes easy to setup and backups
+    </ion-note>
+
+  </div>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+<ion-card id="card1" class="ion-text-center" >
+  <ion-icon name="flame"></ion-icon>
+  <ion-card-header>
+    <ion-card-title>Base Plan</ion-card-title>
+    <ion-card-subtitle><sup>#</sup>Rs.{{planFee}}<sup>/{{planTime}}-{{text}}</sup></ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <h2>Plan Detail</h2>
+    <p>
+      {{planTime}}-{{text}} unlimited earning
+    </p>
+    <ion-button  fill="outline" color="success" (click)="paymentSheet()"><ion-card-subtitle color="success">Buy Now</ion-card-subtitle></ion-button>
+  </ion-card-content>
+
+</ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

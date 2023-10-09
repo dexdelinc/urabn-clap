@@ -1,0 +1,113 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-details"></ion-back-button>
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-title class="title"><ion-badge class="badge" color="success">Your Order List</ion-badge></ion-title>
+
+  <ion-list *ngFor="let item of orderData;let i = index;">
+
+    <ion-item>
+      <img slot="start" class="image" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
+
+      <ion-label>
+        <h2>Status: {{item.status}}</h2>
+        <h2>Name: {{item.name}}</h2>
+        <h3>Price: {{item.price}}</h3>
+        <h3>Description: {{item.discription}}</h3>
+
+      </ion-label>
+
+    </ion-item>
+
+
+
+  </ion-list>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon color="danger" name="close" slot="start" (click)="close()"></ion-icon>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+
+  <!-- <ion-title class="title"><ion-badge class="badge" color="success">Your Order Cart</ion-badge></ion-title> -->
+
+
+  <div class="ion-padding">
+
+    <ion-list>
+      <ion-item *ngFor="let p of cart;let i= index;" class="ion-text-wrap">
+        <ion-grid>
+          <ion-card class="cart_card">
+          <ion-badge color="success">Price:</ion-badge>&nbsp;<ion-badge color="danger">{{ p.basePrice | currency:'INR'}}</ion-badge>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3" class="ion-align-self-center">
+              <ion-button [disabled]="p.price/p.basePrice<= 1" color="danger" fill="clear" (click)="decreaseCartItem(p,i)">
+                <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="2" class="ion-align-self-center">
+              {{ p.price/p.basePrice }}
+            </ion-col>
+
+            <ion-col size="2" class="ion-align-self-center">
+              <ion-button color="success" fill="clear" [disabled]="p.price/p.basePrice>= p.quantity" (click)="increaseCartItem(p,i)">
+                <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="2" offset="3">
+              <ion-button color="danger" fill="clear" (click)="removeCartItem(p)">
+                <ion-icon name="trash-sharp" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="4">
+              <b>{{ p.name }}</b>
+            </ion-col>
+            <ion-col size="8" class="ion-text-end">
+              {{ p.price | currency:'INR' }}
+            </ion-col>
+          </ion-row>
+          </ion-card>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid class="total">
+          <ion-row>
+            <ion-col size="4">
+              Total:
+            </ion-col>
+            <ion-col size="8" class="ion-text-end">
+              {{ getTotal() | currency:'INR' }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" (click)="checkout()">
+      Checkout
+    </ion-button>
+  </div>
+
+</ion-content>

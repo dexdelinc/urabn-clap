@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon
+      ></ion-button>
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-searchbar debounce="500" [(ngModel)]="search"></ion-searchbar>
+
+  <ion-card
+    *ngFor="let item of orderData | filter : search : filterKeys; let i = index"
+  >
+    <ion-item>
+      <ion-label class="label_item">
+        <h2 *ngIf="item.statusbar === 'Pending'">
+          Status:<ion-badge color="warning">{{ item.statusbar }}</ion-badge>
+        </h2>
+        <h2 *ngIf="item.statusbar === 'Confirmed'">
+          Status:<ion-badge color="primary">{{ item.statusbar }}</ion-badge>
+        </h2>
+        <h2 *ngIf="item.statusbar === 'Canceled'">
+          Status:<ion-badge color="danger">{{ item.statusbar }}</ion-badge>
+        </h2>
+         <h2 *ngIf="item.statusbar === 'Delivered'">
+          Status:<ion-badge color="success">{{ item.statusbar }}</ion-badge>
+        </h2>
+        <div (click)="onDetail(item)">
+        <h2 >Name: {{ item.name }}</h2>
+        <h2>Phone No: {{ item.phone }}</h2>
+        <h2 *ngIf="preUrl != '/home'">Quantity: {{ item.totalProduct }}</h2>
+        <h2>Price: {{ item.totalPrice }}</h2>
+        <h2>Location: {{ item.address }}</h2>
+        </div>
+     
+        <ion-button  *ngIf="preUrl != '/home' && item.statusbar === 'Confirmed'" color="danger" (click)="orderStatus(item)"
+        style="float: left; width: 130px"><h2>Order Status</h2></ion-button>
+          <ion-button  *ngIf="preUrl != '/home' && item.statusbar === 'Confirmed'&& item.deliveryStatus==='Out for Delivery'&& item.acceptDeliveryBoy===''" color="dark" (click)="sendRequest()"
+          style="float: right; width: 130px" ><h2>send request</h2></ion-button>
+          <ion-button *ngIf="preUrl == '/home'
+        && item.statusbar == 'Confirmed'" color="dark" (click)="tracking(item)"
+          ><h2>Track My Order</h2></ion-button>
+        <ion-button *ngIf="preUrl == '/home'
+        && item.statusbar == 'Confirmed'" color="success" (click)="markDeliver(item)"
+          ><h2>Mark as Delivered</h2></ion-button>
+        
+      </ion-label>
+      <ion-row>
+        <ion-col> </ion-col>
+        <ion-col> </ion-col>
+        <ion-col>
+          <ion-icon
+            *ngIf="item.status === 1 && preUrl != '/home'"
+            class="check"
+            color="secondary"
+            name="checkmark-circle-sharp"
+            (click)="onConfirm(item)"
+          ></ion-icon>
+          <ion-icon
+            *ngIf="item.status === 1 && preUrl != '/home'"
+            class="close"
+            color="danger"
+            name="close-circle-sharp"
+            (click)="onCancel(item)"
+          ></ion-icon>
+          <a href="tel:{{ item.phone }}"
+            ><ion-icon
+              class="call"
+              color="success"
+              name="call-sharp"
+              (click)="onCall(item)"
+            ></ion-icon
+          ></a>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
+</ion-content>

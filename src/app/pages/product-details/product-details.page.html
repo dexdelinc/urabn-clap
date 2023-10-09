@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shop-user-profile"></ion-back-button>
+      <ion-col align-self-center>
+        <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+      </ion-col>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content role="feed">
+  <!-- <ion-list class="fab">
+   
+    <ion-fab-button>
+      <ion-icon name="add" (click)="presentAlert()"></ion-icon>
+    </ion-fab-button>
+    
+  </ion-list> -->
+  <ion-list *ngFor="let item of product;let i = index;">
+    <ion-item>
+      <!-- <ion-avatar slot="start"> -->
+      <img slot="start" class="image" src="{{url}}{{item.imagePath}}" />
+      <!-- </ion-avatar> -->
+      <ion-label class="items">
+        <h2>Status: {{item.status}}</h2>
+        <h2>Item: {{item.name}}</h2>
+        <h3>Price: {{item.price}}</h3>
+        <!-- <h2>{{item.service}}</h2> -->
+        <h2>Quantity: {{item.quantity}}</h2>
+        <h2>Description: {{item.description}}</h2>
+      </ion-label>
+      <!-- <ion-avatar slot="end" >
+        <ion-badge (click)="deleteAlert(item._id)" >Delete</ion-badge>
+      </ion-avatar> -->
+      <ion-toggle class="toggle" [checked]="item.status" (click)="statusUpdate($event,item._id,i)"></ion-toggle>
+      <ion-icon name="trash-sharp" color="danger" (click)="deleteAlert(item._id)" slot="end"></ion-icon>
+      <!-- <ion-avatar slot="end">
+        <ion-button (click)="presentAlert(item._id)">
+          <ion-img src="assets/img/phone-call.png"></ion-img>
+        </ion-button>
+      </ion-avatar> -->
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Change Item Status</ion-label>
+      <ion-toggle [checked]="item.status" (click)="statusUpdate($event,item._id,i)"></ion-toggle>
+    </ion-item> -->
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

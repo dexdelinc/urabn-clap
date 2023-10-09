@@ -1,0 +1,149 @@
+// .ng-pristine.ng-invalid.ng-touched {
+//     border-color: red;
+//   }
+  
+//   ion-col {
+//     padding: 0;
+//     margin: 0;
+//     display: flex;
+//     align-items: center;
+//   }
+  
+//   .backbutton {
+//     margin-top: 20px;
+//     color: #C2D61A;
+//     margin-left: 20px;
+//     font-size: 25px;
+//   }
+  
+//   .center-title {
+//     font-size: 26px;
+//     font-weight: lighter;
+//     line-height: 49px;
+//     color: #393939;
+//     text-align: center;
+//     display: inline-block;
+//     width: 100%;
+//     margin: 29px 0 0 0;
+//   }
+  
+//   .content {
+//     margin: 10px;
+//   }
+  
+//   .log{
+//     display: grid;
+//     width: 70%;
+//     margin-left: 10px;
+//   }
+  
+//   ////////////////////////
+  
+//   .register-form {
+//     padding: 27px 2px;
+  
+//     .form-group {
+//       color: #6E6E6E;
+//       text-align: left;
+//       margin-bottom: 20px;
+  
+//       ion-item {
+//         --border-width: 0;
+//         --padding-start: 0;
+//         --padding-end: 0;
+  
+//         div {
+//           width: 100%;
+//         }
+//       }
+  
+//       ion-label {
+//         color: #393939;
+//       }
+  
+//       ion-input {
+//         --padding-top: 14px;
+//         --padding-bottom: 14px;
+//         --padding-start: 20px;
+//         --padding-end: 20px;
+//         border-radius: 5px !important;
+//         background-color: #ffff !important;
+//         font-size: 14px !important;
+//         z-index: 1 !important;
+//         width: 100%;
+//         border: 1px solid #6E6E6E80;
+//       }
+//     }
+//   }
+  
+//   .placeholder {
+//     font-size: 18px;
+//   }
+  
+//   .borderGreen {
+//     border: 1px #C2D61A solid;
+//   }
+  
+//   .checkIcon {
+//     position: absolute;
+//     right: 25px;
+//     margin-top: 0;
+//     font-size: 26px;
+//     z-index: 2;
+//     top: 1.5em;
+//   }
+  
+//   .email-message {
+//     padding: 0;
+//     margin: 0;
+//     font-size: 14px;
+//     color: #6E6E6E;
+//   }
+  
+//   div.form-group.policy_termConditions {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 0 !important;
+  
+//     ion-label {
+//       font-size: 12px;
+//       color: #6E6E6E;
+//     }
+  
+//     u {
+//       color: #00373D;
+//     }
+//   }
+  
+//   .checkbox-error {
+//     position: relative;
+//     margin-top: -15px;
+//     margin-bottom: 10px;
+//   }
+  
+//   .secondary-btn {
+//     margin-top: 15px;
+//   }
+  
+//   .md .policy_termConditions ion-label {
+//     margin-left: -1.5em;
+//   }
+//   .list-header{
+//     font-weight: bold;
+//   }
+
+.small-text{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fab-btn{
+    width: 45px;
+    height: 45px;
+  }
+  .log{
+    display: grid;
+    width: 70%;
+    margin-left: 10px;
+  }

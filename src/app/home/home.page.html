@@ -1,0 +1,166 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title *ngIf="token == null">Register/Login</ion-title>
+      <ion-title *ngIf="token !== null">My Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!-- <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher> -->
+    <div class="avtar-box" *ngIf="token !== null">
+      <ion-grid color="light">
+        <ion-row class="profile__row">
+
+          <ion-title>{{label}}</ion-title>
+          <img *ngIf="label=='Customer'" class="avatar" src="https://ionicframework.com/docs/img/demos/avatar.svg"
+            alt="Avatar" />
+
+          <img *ngIf="label!=='Customer'" class="avatar" src="{{url}}{{imageData}}" alt="Avatar" />
+
+        </ion-row>
+      </ion-grid>
+
+      <ion-row class="justify-content-center">
+        <h3>{{customerData?.firstname+' '+customerData?.lastname}}</h3>
+      </ion-row>
+    </div>
+
+    <ion-menu-toggle auto-hide="false" *ngIf="token !== null">
+      <div padding>
+        <ion-button (click)="goToProfile()" class="danger-btn" expand="block">Profile
+        </ion-button>
+      </div>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false" *ngIf="token !== null">
+      <div padding>
+        <ion-button (click)="myOrder()" color="secondary" class="danger-btn" expand="block">My Order
+        </ion-button>
+      </div>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false" *ngIf="token !== null">
+      <div padding>
+        <ion-button (click)="signOut()" class="danger-btn" expand="block">LOGOUT
+        </ion-button>
+      </div>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false" *ngIf="token == null">
+      <ion-item ion-menu-toggle>
+        <ion-icon name="body-sharp" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/register']"><a>Service || Shop User Signup</a></ion-label>
+      </ion-item>
+      <ion-item ion-menu-toggle>
+        <ion-icon name="key" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/login']">Service User Login</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="key" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/shop-login']">Shop User Login</ion-label>
+      </ion-item>
+      <ion-item ion-menu-toggle>
+        <ion-icon name="person-add-sharp" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/customer-register']"><a>Customer Signup</a></ion-label>
+      </ion-item>
+      <ion-item ion-menu-toggle>
+        <ion-icon name="person-add-sharp" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/employee-register']"><a>Employee Signup</a></ion-label>
+      </ion-item>
+      <ion-item ion-menu-toggle>
+        <ion-icon name="key" slot="start"></ion-icon>
+        <ion-label [routerLink]="['/customer-login']">Customer Login</ion-label>
+      </ion-item>
+      <ion-item ion-menu-toggle>
+        <ion-icon name="key" slot="start"></ion-icon>
+        <ion-label (click)="employeeLogin()">Employee Login</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-row>
+        <ion-col align-self-center>
+          <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-searchbar placeholder="Search location" name="location" [(ngModel)]="form.geo_address" #location="ngModel"
+  #autocomplete (search)="onSearch($event)">
+</ion-searchbar>
+
+<div class="map-container">
+
+  <div class="map" #map>
+    <capacitor-google-map></capacitor-google-map>
+
+
+  </div>
+</div>
+<ion-content class="ion-padding">
+ 
+  <div class="ion-page" id="main-content">
+    <ion-searchbar debounce="500" [(ngModel)]="search" (ionChange)="searchService()"></ion-searchbar>
+
+    <ion-content role="feed" class="bottam">
+
+      <ion-list class="list" *ngFor="let item of serviceData | filter:search:filterKeys;let i=index">
+
+        <ion-item (click)="onClick(item._id)"  *ngIf="!progressBar">
+          <ion-thumbnail  slot="start">
+            <img alt="Silhouette of a person's head" src="assets/img/plumber.png" />
+          </ion-thumbnail >
+          <ion-label>
+            <h2>{{item.name}}</h2>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="progressBar">
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <section class="form__footer mt-0 mb-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-6 p-0">
+          <div class="left__btn">
+            <a href="javascript:void(0);" [ngClass]="{'selected': selected === 1}" (click)="changeSelected(1)">
+              <ion-icon name="git-network-sharp"></ion-icon> Services
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-6 p-0">
+          <div class="left__btn">
+            <a href="javascript:void(0);" [ngClass]="{'selected': selected === 2}" (click)="changeSelected(2)">
+              <ion-icon name="card-sharp"></ion-icon> Shops
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-footer>

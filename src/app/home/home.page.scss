@@ -1,0 +1,94 @@
+.container{
+  width: 100%;
+  height:100%;
+  color: rgb(255, 146, 127);
+}
+capacitor-google-map {
+  display: inline-block;
+  width: 100%;
+    height: 25vh;
+}
+#map_image {
+  display: block;
+  width: 100%;
+  height: 25vh;
+}
+.header__bg {
+  background-color: rgb(193, 228, 20);
+}
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ion-page .logo {
+  width: 200px;
+  
+}
+.log{
+  display: grid;
+  width: 70%;
+  margin-left: 10px;
+}
+.has-search form ion-select {
+  /* border: 1px solid #282828; */
+  border-radius: 5px;
+  background-color: #fff;
+}
+.has-search form ion-select .select-text {
+  color: #282828;
+  opacity: 0.8;
+}
+.my-custom-menu {
+  --width: 500px;
+}
+ion-avatar {
+  --border-radius: 4px;
+}
+ion-footer .selected {
+color: rgb(244, 230, 234);
+background:linear-gradient(90deg, var(--ion-color-primary) 30%, var(--orange) 100%);
+border-radius: 1px;
+
+}
+// .toolbar-background {
+//   background-color:linear-gradient(90deg, var(--ion-color-primary) 30%, var(--orange) 100%);
+// }
+
+.list{
+  cursor: pointer;
+}
+
+ion-item.item:hover ion-label {
+  background-color: lightgray
+}
+.avatar {
+  vertical-align: middle;
+  width: 140px;
+  height: 135px;
+  border-radius: 50%;
+}
+
+// .left__btn:hover a {
+//   background-color: lightgray
+// }
+.map-container {
+  padding: 0 0px;
+  height: 150px;
+  overflow: hidden;
+  /*    position: fixed;*/
+  top: 105px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9;
+}
+
+.map-container .map {
+  height: 100%;
+}
+.profile__row {
+  display: block;
+  text-align: center;
+}
+

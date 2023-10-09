@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shop-user-profile"></ion-back-button>
+      <ion-row>
+        <ion-col align-self-center>
+          <ion-img src="assets/img/s-work7-logo-11.png" class="log"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-content>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content> -->
+<ion-content>
+  <h3 *ngIf="imageSource.length == 0" class="ion-padding ion-text-center">
+    Please Select Image!
+  </h3>
+  <ion-grid>
+    <ion-row *ngIf="imageSource.length !== 0">
+      <ion-img [src]="imageSource"></ion-img>
+      <!-- <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col> -->
+      <!-- <ion-col size="6" *ngFor="let photo of imageSource; index as position"> -->
+      <!-- <ion-col *ngFor="index as position">
+        <ion-img
+          [src]="imageSource"
+          (click)="showActionSheet(position)"
+        ></ion-img>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+
+  <!-- ion-fab markup  -->
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="imageSource.length == 0">
+    <ion-button
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="takeTitlePicture()"
+    >
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar color="primary" *ngIf="imageSource.length !== 0">
+    <ion-button
+      fill="clear"
+      expand="full"
+      color="light"
+      name="file"
+      (click)="startUpload()"
+    >
+      <ion-icon slot="start" name="cloud-upload"></ion-icon>
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

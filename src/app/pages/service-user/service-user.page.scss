@@ -1,0 +1,56 @@
+.container{
+    width: 100%;
+    height:100%;
+  }
+  
+  capacitor-google-map{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+  }
+  .header__bg {
+    background-color: white;
+  }
+  .call{
+    width: 50px;
+    height: 38px;
+  }
+  .header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header__row .logo ion-img {
+    width: 160px;
+  }
+  .has-search form ion-select {
+    /* border: 1px solid #282828; */
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  .has-search form ion-select .select-text {
+    color: #282828;
+    opacity: 0.8;
+  }
+  .scroll-items {
+    flex-wrap: nowrap;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+  }
+  .scroll-items ion-col {
+    display: flex;
+  }
+  .log{
+    display: grid;
+    width: 70%;
+    margin-left: 20px;
+  }
+  .active{
+    background-color: greenyellow;
+  }
+  .image {
+  border-radius: inherit;
+  width: 80px;
+  margin-right: 10px;
+  height: 80px;
+}
